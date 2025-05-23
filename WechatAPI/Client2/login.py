@@ -224,7 +224,7 @@ class LoginMixin(WechatAPIClientBase):
 
         async with aiohttp.ClientSession() as session:
             json_param = {"Wxid": self.wxid}
-            response = await session.post(f'http://{self.ip}:{self.port}/api/Login/HeartBeatLong', json=json_param)
+            response = await session.post(f'http://{self.ip}:{self.port}/api/Login/AutoHeartBeat', json=json_param)
             json_resp = await response.json()
 
             if json_resp.get("Success"):
@@ -248,7 +248,7 @@ class LoginMixin(WechatAPIClientBase):
 
         async with aiohttp.ClientSession() as session:
             json_param = {"wxid": self.wxid}
-            response = await session.post(f'http://{self.ip}:{self.port}/api/Login/HeartBeatLong', data=json_param)
+            response = await session.post(f'http://{self.ip}:{self.port}/api/Login/AutoHeartBeat', data=json_param)
             json_resp = await response.json()
 
             if json_resp.get("Success"):
